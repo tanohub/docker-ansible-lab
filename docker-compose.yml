@@ -5,11 +5,12 @@ services:
     image: ansible-ubuntu-controller
     container_name: ${COMPOSE_PROJECT_NAME}-controller
     hostname: ${COMPOSE_PROJECT_NAME}-controller
-    ports:
-      - "8422:22"
     volumes:
       - ansible_vol:/var/ansible-volume
       - "./data/controller/scripts/start-endpoint.sh:/start-endpoint.sh"
+      # ansible conf
+      - "./data/controller/conf/etc/ansible/ansible.cfg:/etc/ansible/ansible.cfg"
+      # ansible playbooks \ inventories \ roles
       - "./data/controller/ansible/:/root/ansible/"
       # force local timezone
       - "/etc/timezone:/etc/timezone:ro"

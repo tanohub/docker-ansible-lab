@@ -1,0 +1,17 @@
+---
+all:
+    vars:
+      ansible_user: root
+      ansible_ssh_private_key_file: /var/ansible-volume/master_key
+      ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+    children:
+      lab:
+        children:
+          ubuntus:
+            hosts:
+              ubuntu01:
+                var1: "Variable1Content - ubuntu01"
+          centos:
+            hosts:
+              centos01:
+                var1: "Variable1Content - centos01"

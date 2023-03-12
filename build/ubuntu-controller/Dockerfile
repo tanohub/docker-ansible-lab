@@ -4,7 +4,8 @@ FROM ansible-ubuntu-base:latest
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y \
 	ansible \
-        openssh-server \
+        git \
+	openssh-server \
 	openssh-client
 
 ADD scripts/start.sh /start.sh

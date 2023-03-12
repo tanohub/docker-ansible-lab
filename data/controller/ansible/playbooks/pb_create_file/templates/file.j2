@@ -1,0 +1,20 @@
+#jinja2: trim_blocks:False
+# {{ ansible_managed }}
+
+Generic file created via templated variables
+
+# GENERAL #####
+{% if var1 is defined %}var1={{ var1 }}{% endif %}
+{% if var2 is defined %}var2={{ var2 }}{% endif %}
+
+{%- if ntp_server is defined %}
+
+##### Variable defined only centos01 host
+ntp={{ ntp_server }}
+{%- endif %}
+
+##### Variable not present on each host
+{%- if database_server is defined %}
+database={{ database_server }}{%- endif %}
+
+other common conf

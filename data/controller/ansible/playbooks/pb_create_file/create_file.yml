@@ -1,0 +1,12 @@
+---
+- name: Create file from template
+  hosts: lab
+  become_method: sudo
+  become: yes
+  gather_facts: false
+
+  tasks:
+    - name: Copy file template
+      template:
+        src: templates/file.j2
+        dest: /root/templated_file.txt

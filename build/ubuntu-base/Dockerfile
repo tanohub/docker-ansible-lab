@@ -10,6 +10,7 @@ RUN apt-get update \
 	vim \
 	python \
 	nano \
+	tmux \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/run/sshd
